@@ -1,7 +1,7 @@
 <section class="Main-page">
   <h1 class="Main-page__title">Select your top 5 tech skills</h1>
   <div class="Skills-selector">
-    <div>
+    <div class="Skills-selector__list-container">
       <app-drag-and-drop-list
         *ngIf="selectedLanguages.length > 0"
         [items]="selectedLanguages"
@@ -23,12 +23,14 @@
             *ngFor="let language of suggestedLanguages"
             (click)="handleOptionSelected(language)"
           >
-            <mat-icon
-              aria-hidden="false"
-              aria-label="Add icon"
-              fontIcon="add"
-            ></mat-icon>
-            {{ language }}
+            <button mat-raised-button color="primary">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Add icon"
+                fontIcon="add"
+              ></mat-icon>
+              {{ language }}
+            </button>
           </mat-list-item>
         </mat-list>
       </ng-container>

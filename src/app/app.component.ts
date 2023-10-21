@@ -62,31 +62,29 @@ export class AppComponent {
 
   remainingLanguages: string[] = Object.assign([], this.programmingLanguages);
 
-  suggestedLanguages = [
-    'C',
-    'C++',
-    'Java',
-    'JavaScript',
-    'Python',
-    'PHP',
-    'Go',
-  ]
+  suggestedLanguages = this.programmingLanguages.slice(0, 5);
 
   handleOptionSelected(option: string): void {
     if(option) {
       this.selectedLanguages.push(option);
       this.updateRemainingLanguages();
+      this.updateSuggestedLanguages();
     }
   }
 
   handleRemoveItem(index: number): void {
     this.selectedLanguages.splice(index, 1);
     this.updateRemainingLanguages();
+    this.updateSuggestedLanguages();
   }
 
   updateRemainingLanguages(): void {
     this.remainingLanguages = this.programmingLanguages.filter((language) => {
       return !this.selectedLanguages.includes(language);
     });
+  }
+
+  updateSuggestedLanguages(): void {
+    this.suggestedLanguages = this.remainingLanguages.slice(0, 5);
   }
 }

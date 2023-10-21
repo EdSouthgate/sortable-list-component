@@ -1,0 +1,25 @@
+:host {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+form {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.example-form {
+  display:flex;
+  flex-grow: 1;
+  width: 100%;
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 500px;
+}
+
