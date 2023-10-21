@@ -60,10 +60,23 @@ export class AppComponent {
 
   selectedLanguages: string[] = [];
 
+  remainingLanguages: string[] = Object.assign([], this.programmingLanguages);
+
   handleOptionSelected(option: string): void {
     if(option) {
       this.selectedLanguages.push(option);
+      this.updateRemainingLanguages();
     }
   }
 
+  handleRemoveItem(index: number): void {
+    this.selectedLanguages.splice(index, 1);
+    this.updateRemainingLanguages();
+  }
+
+  updateRemainingLanguages(): void {
+    this.remainingLanguages = this.programmingLanguages.filter((language) => {
+      return !this.selectedLanguages.includes(language);
+    });
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -10,17 +10,21 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./auto-complete-input.component.scss'],
 
 })
-export class AutoCompleteInputComponent implements OnInit {
+export class AutoCompleteInputComponent implements OnInit, OnChanges {
   myControl = new FormControl('');
   filteredOptions?: Observable<string[]>;
   @Input() options!: string[];
   @Output() optionSelected: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
+    this.initFilteredOptions();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes['options']) {
+      this.options = changes['options'].currentValue;
+      this.initFilteredOptions();
+    }
   }
 
   private _filter(value: string): string[] {
@@ -35,6 +39,13 @@ export class AutoCompleteInputComponent implements OnInit {
       this.myControl.setValue('');
     }
 
+  }
+
+  initFilteredOptions(): void {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
 import {NgFor} from '@angular/common';
 
@@ -10,8 +10,14 @@ import {NgFor} from '@angular/common';
 export class DragAndDropListComponent {
   @Input() items: string[] = [];
 
+  @Output() removeItem: EventEmitter<number> = new EventEmitter<number>();
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.items, event.previousIndex, event.currentIndex);
+  }
+
+  handleRemoveItem(index: number): void {
+    this.removeItem.emit(index);
   }
 
 }

@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AutoCompleteInputComponent } from './components/auto-complete-input/auto-complete-input.component';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { AutoCompleteInputComponent } from './components/auto-complete-input/aut
     ReactiveFormsModule,
     NgFor,
     AsyncPipe,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
