@@ -21,6 +21,10 @@
   cursor: move;
   background: white;
   font-size: 14px;
+
+  &:hover {
+    background: #d4d4d4;
+  }
 }
 
 .cdk-drag-preview {

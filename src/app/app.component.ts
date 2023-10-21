@@ -8,6 +8,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'sortable-list-component';
 
+  /* Todo
+  * - create api
+  * - move to a service and refactor to use RxJS
+  * - add tests
+  * - make it look more like the designs
+  */
   programmingLanguages = [
     'Assembly',
     'Ada',
