@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,7 @@ export class AppComponent {
   * - move to a service and refactor to use RxJS
   * - add tests
   * - make it look more like the designs
+  * - randomize suggested languages or find some other way of selecting them
   */
   programmingLanguages = [
     'Assembly',
@@ -68,7 +69,11 @@ export class AppComponent {
 
   remainingLanguages: string[] = Object.assign([], this.programmingLanguages);
 
-  suggestedLanguages = this.programmingLanguages.slice(0, 5);
+  suggestedLanguages: string[] = [];
+
+  ngOnInit() {
+    this.updateSuggestedLanguages();
+  }
 
   handleOptionSelected(option: string): void {
     if(option) {
@@ -91,6 +96,11 @@ export class AppComponent {
   }
 
   updateSuggestedLanguages(): void {
-    this.suggestedLanguages = this.remainingLanguages.slice(0, 5);
+    let newSuggestedLanguages = [];
+    for(let i = 0; i < 5; i++) {
+      var randomIndex = Math.floor(Math.random() * this.remainingLanguages.length);
+      newSuggestedLanguages.push(this.remainingLanguages[randomIndex]);
+    }
+    this.suggestedLanguages = newSuggestedLanguages
   }
 }
