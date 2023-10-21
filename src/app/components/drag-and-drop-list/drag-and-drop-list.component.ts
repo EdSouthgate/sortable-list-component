@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray} from '@angular/cdk/drag-drop';
 import {NgFor} from '@angular/common';
 
@@ -8,46 +8,10 @@ import {NgFor} from '@angular/common';
   styleUrls: ['./drag-and-drop-list.component.scss'],
 })
 export class DragAndDropListComponent {
-  programmingLanguages = [
-    'C',
-    'C++',
-    'Java',
-    'JavaScript',
-    'Python',
-    'PHP',
-    'Go',
-    'Swift',
-    'Ruby',
-    'Dart',
-    'Kotlin',
-    'Rust',
-    'Scala',
-    'TypeScript',
-    'R',
-    'Julia',
-    'Haskell',
-    'Perl',
-    'Lua',
-    'Elixir',
-    'Clojure',
-    'Groovy',
-    'Erlang',
-    'F#',
-    'OCaml',
-    'Scheme',
-    'Fortran',
-    'Bash',
-    'Assembly',
-    'Cobol',
-    'Visual Basic',
-    'RPG',
-    'PL/1',
-    'Ada',
-    'Lisp',
-  ];
+  @Input() items: string[] = [];
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.programmingLanguages, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.items, event.previousIndex, event.currentIndex);
   }
 
 }

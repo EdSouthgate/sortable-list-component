@@ -58,8 +58,12 @@ export class AppComponent {
     'Visual Basic .NET',
   ];
 
+  selectedLanguages: string[] = [];
+
   handleOptionSelected(option: string): void {
-    console.log('handle option selected : ', option);
+    if(option) {
+      this.selectedLanguages.push(option);
+    }
   }
 
 }
