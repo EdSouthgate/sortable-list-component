@@ -1,2 +1,37 @@
-<app-auto-complete-input [options]="remainingLanguages" (optionSelected)="handleOptionSelected($event)"></app-auto-complete-input>
-<app-drag-and-drop-list [items]="selectedLanguages" (removeItem)="handleRemoveItem($event)"></app-drag-and-drop-list>
+<section class="Main-page">
+  <h1 class="Main-page__title">Select your top 5 tech skills</h1>
+  <div class="Skills-selector">
+    <div>
+      <app-drag-and-drop-list
+        *ngIf="selectedLanguages.length > 0"
+        [items]="selectedLanguages"
+        (removeItem)="handleRemoveItem($event)"
+      ></app-drag-and-drop-list>
+      <app-auto-complete-input
+        *ngIf="selectedLanguages.length < 5"
+        [options]="remainingLanguages"
+        (optionSelected)="handleOptionSelected($event)"
+      ></app-auto-complete-input>
+    </div>
+
+    <div class="Skills-selector__selected-languages">
+      <ng-container *ngIf="selectedLanguages.length < 5">
+        <div mat-subheader>Suggested languages</div>
+        <mat-list role="list">
+          <mat-list-item
+            role="listitem"
+            *ngFor="let language of suggestedLanguages"
+            (click)="handleOptionSelected(language)"
+          >
+            <mat-icon
+              aria-hidden="false"
+              aria-label="Add icon"
+              fontIcon="add"
+            ></mat-icon>
+            {{ language }}
+          </mat-list-item>
+        </mat-list>
+      </ng-container>
+    </div>
+  </div>
+</section>

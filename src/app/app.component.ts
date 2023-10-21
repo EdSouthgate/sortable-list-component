@@ -62,6 +62,16 @@ export class AppComponent {
 
   remainingLanguages: string[] = Object.assign([], this.programmingLanguages);
 
+  suggestedLanguages = [
+    'C',
+    'C++',
+    'Java',
+    'JavaScript',
+    'Python',
+    'PHP',
+    'Go',
+  ]
+
   handleOptionSelected(option: string): void {
     if(option) {
       this.selectedLanguages.push(option);

@@ -12,6 +12,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { AutoCompleteInputComponent } from './components/auto-complete-input/auto-complete-input.component';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {MatButtonModule} from '@angular/material/button';
     AsyncPipe,
     MatIconModule,
     MatButtonModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
