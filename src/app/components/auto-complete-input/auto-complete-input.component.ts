@@ -8,7 +8,6 @@ import {map, startWith} from 'rxjs/operators';
   selector: 'app-auto-complete-input',
   templateUrl: './auto-complete-input.component.html',
   styleUrls: ['./auto-complete-input.component.scss'],
-
 })
 export class AutoCompleteInputComponent implements OnInit, OnChanges {
   myControl = new FormControl('');

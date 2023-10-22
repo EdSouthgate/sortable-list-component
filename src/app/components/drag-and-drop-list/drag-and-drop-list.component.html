@@ -1,8 +1,8 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let item of items, index as i" cdkDrag>
+<div cdkDropList class="Drag-and-drop-list" (cdkDropListDropped)="drop($event)">
+  <div class="Drag-and-drop-list__box" *ngFor="let item of items, index as i" cdkDrag>
     {{i + 1}}) {{item}}
-    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="handleRemoveItem(i)">
-      <mat-icon>delete</mat-icon>
+    <button mat-fab color="secondary" aria-label="Close icon" (click)="handleRemoveItem(i)">
+      <mat-icon>close</mat-icon>
     </button>
   </div>
 </div>

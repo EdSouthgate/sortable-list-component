@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   title = 'sortable-list-component';
@@ -14,6 +15,7 @@ export class AppComponent {
   * - add tests
   * - make it look more like the designs
   * - randomize suggested languages or find some other way of selecting them
+  * - after refactoring to use ngRx change detection strategy can be set to OnPush
   */
   programmingLanguages = [
     'Assembly',

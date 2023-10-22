@@ -1,29 +1,28 @@
-.example-list {
+.Drag-and-drop-list {
   width: 500px;
   max-width: 100%;
   border: solid 1px #ccc;
   min-height: 60px;
   display: block;
-  background: white;
   border-radius: 4px;
   overflow: hidden;
 }
 
-.example-box {
+.Drag-and-drop-list__box {
   padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+  border-bottom: solid 1px #8690b3;
+  color: rgba(255, 255, 255, 0.87);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
-  background: white;
+  background: #0d2167;
   font-size: 14px;
 
   &:hover {
-    background: #d4d4d4;
+    background: #8690b3;
   }
 }
 
